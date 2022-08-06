@@ -3,8 +3,11 @@
 # Current directory
 currentDir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+# Get Mozilla profile folder from profile.ini
+firefoxProfileFolder=`crudini --get "$HOME/.mozilla/firefox/profiles.ini" Profile0 Path`
+
 # Mozilla Firefox bookmarks backup folder
-firefoxBackup="$HOME/.mozilla/firefox/user.default/bookmarkbackups"
+firefoxBackup="$HOME/.mozilla/firefox/$firefoxProfileFolder/bookmarkbackups"
 
 # Destination files for Markdown format of Mozilla Firefox bookmarks
 othersBookmarksFilePath="$HOME/Sviluppo/SVN2/codingepaduli/content/interesting/Others.md"
