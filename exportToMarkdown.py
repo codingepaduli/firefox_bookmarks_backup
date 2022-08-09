@@ -64,6 +64,10 @@ def printBookmark(bookmark):
     if "title" in bookmark and "uri" in bookmark:
         titleParts = bookmark['title'].split(" - ", 1)
         titleParts.append('') # create a two element array (split() can return a single element array)
+
+        # HTML sanitizer
+        titleParts[0] = titleParts[0].replace('<','&lt;').replace('>','&gt;')
+        titleParts[1] = titleParts[1].replace('<','&lt;').replace('>','&gt;')
         print('[' + titleParts[0] + ']' + '(' + bookmark['uri'] + ') - ' + titleParts[1] + '\\') # '\' meaning "new line" in Markdown
 
 
