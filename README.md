@@ -1,45 +1,11 @@
-# Firefox Bookmarks Backup in Markdown
+# Firefox Bookmarks Backup in Markdown (repository archived)
 
-A simple script (bash / python) to backup all Firefox bookmarks in CommonMark+YamlFrontmatter in order to be (manually) published by a static site generator (I use [Hugo static site generator](https://gohugo.io))
+This repository has been archived. 
 
-The script is customized for publishing different categories of bookmarks: "Developing", "Interesting", "Others", ect... . Each category has a sort of Hugo template, like ``Developing.header.md`` and ``Others.header.md``, in which are stored the front-matter as YAML headers. Add and/or edit the templates as your wish.
+The work has been splitted in two repository:
 
-## Summary
-
-- [Prerequisites](#prerequisites)
-- [Use](#use)
-- [Development](#development)
-  - [TODO](#todo)
-  - [Script customization](#script-customization)
-
-## Prerequisites
-
-Linux compatible OS. 
-
-Ensure to install the following libraries:
-
-```bash
-lzma python3-lz4 crudini
-```
-
-Firefox profile is saved in ````$HOME/.mozilla/firefox/profiles.ini``.
-
-Firefox bookmarks are saved in a folder like ``$HOME/.mozilla/firefox/$FF_PROFILE_ID.default[-esr]/bookmarkbackups/bookmarks-xyz...abc.jsonlz4``.
-
-## Use
-
-Edit the file ``script.sh`` and set the variables:
-
-- ``firefoxProfileFolder`` the Firefox profiles folder (contains the file ``profiles.ini``);
-
-Start the script:
-``./script.sh``
-
-## Development
-
-### TODO 
-
-I need to split this work in two repository, the first with the conversion from the ``jsonlz4`` format (FireFox bookmarks) to the ``JSON`` format, the second with the custom script from ``JSON`` to ``CommonMark+YamlFrontmatter``. I hope I will work on this soon...
+- The mozLz4-decompress library [https://github.com/codingepaduli/mozLz4-decompress])https://github.com/codingepaduli/mozLz4-decompress#mozlz4-decompress) to decompress the ``jsonlz4`` format (FireFox bookmarks) to ``JSON`` format;
+- The python script [https://github.com/codingepaduli/firefox-bookmarks-to-markdown](https://github.com/codingepaduli/firefox-bookmarks-to-markdown#firefox-bookmarks-to-markdown) to convert the FireFox bookmarks from ``JSON`` to ``CommonMark``.
 
 ### Script customization
 
