@@ -20,10 +20,16 @@ outputFolder="$currentDir/output"
 # Create the output folder if not exists
 mkdir -p "$outputFolder"
 
-# decompress and pretty print the bookmarks.json
-python3 "$currentDir/mozlz4.py" -d "$firefoxBackupFolder/$lastUpdatedFile" "$outputFolder/bookmarksRaw.json"
+# decompress the bookmarks.json
+python3 "$currentDir/mozlz4.py" -d "$firefoxBackupFolder/$lastUpdatedFile" "$outputFolder/bookmarks.json"
 
-python3 -m json.tool "$outputFolder/bookmarksRaw.json" > "$outputFolder/bookmarks.json"
+# Debugging (optional step): pretty print the json file
+python3 -m json.tool "$outputFolder/bookmarks.json" > "$outputFolder/bookmarksFormatted.json"
+
+# Debugging (optional step): Convert the bookmarks.json in bookmarks.md (pretty print in Markdown)
+python3 "$currentDir/exportToMarkdown.py" "$outputFolder/bookmarks.json" > "$outputFolder/bookmarks.md"
+
+#### Start coping from here
 
 # CommonMark+YamlFrontmatter template for each category
 othersBookmarksFilePath="$HOME/Sviluppo/SVN2/codingepaduli/content/interesting/Others.md"
