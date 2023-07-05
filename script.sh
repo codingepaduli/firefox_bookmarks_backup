@@ -9,10 +9,10 @@ currentDir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 firefoxProfileFolder=`crudini --get "$HOME/.mozilla/firefox/profiles.ini" Profile0 Path`
 
 # Mozilla Firefox bookmarks backup folder
-firefoxBackup="$HOME/.mozilla/firefox/$firefoxProfileFolder/bookmarkbackups"
+firefoxBackupFolder="$HOME/.mozilla/firefox/$firefoxProfileFolder/bookmarkbackups"
 
 # Set the last backup
-lastUpdatedFile=`ls -t "$firefoxBackup" | head -n1`
+lastUpdatedFile=`ls -t "$firefoxBackupFolder" | head -n1`
 
 # Set the output folder
 outputFolder="$currentDir/output"
@@ -21,7 +21,8 @@ outputFolder="$currentDir/output"
 mkdir -p "$outputFolder"
 
 # decompress and pretty print the bookmarks.json
-python3 "$currentDir/mozlz4.py" -d "$firefoxBackup/$lastUpdatedFile" "$outputFolder/bookmarksRaw.json"
+python3 "$currentDir/mozlz4.py" -d "$firefoxBackupFolder/$lastUpdatedFile" "$outputFolder/bookmarksRaw.json"
+
 python3 -m json.tool "$outputFolder/bookmarksRaw.json" > "$outputFolder/bookmarks.json"
 
 # CommonMark+YamlFrontmatter template for each category
