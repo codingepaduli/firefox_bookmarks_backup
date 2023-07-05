@@ -1,6 +1,6 @@
 # Firefox Bookmarks Backup in Markdown (repository archived)
 
-This repository has been archived. 
+This repository has been archived.
 
 The work has been splitted in two repository:
 
