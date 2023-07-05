@@ -35,6 +35,6 @@ cat "$currentDir/Developing.header.md" | sed "s/%/`date --date="yesterday" '+%Y-
 cat "$currentDir/Educational.header.md" | sed "s/%/`date --date="yesterday" '+%Y-%m-%d'`/g" > "$educationalBookmarksFilePath"
 
 # print the Markdown content
-python3 "$currentDir/exportToMarkdown.py" "$outputFolder/bookmarks.json" --denied 'Media e Download' 'Giustizia e leggi' 'Scuola' 'Concorsi' 'Altri segnalibri sparsi' 'Blog News e Link' '.Net' 'Scienze' 'Altri segnalibri' >> "$developingBookmarksFilePath"
+python3 "$currentDir/exportToMarkdown.py" "$outputFolder/bookmarks.json" --denied 'Media e Download' 'Giustizia e leggi' 'Scuola' 'Concorsi' 'Altri segnalibri sparsi' 'Blog News e Link' '.Net' 'Scienze' 'Altri segnalibri' 'unfiled' 'toolbar' >> "$developingBookmarksFilePath"
 python3 "$currentDir/exportToMarkdown.py" "$outputFolder/bookmarks.json" --allowed '' 'menu' 'Scienze' 'Spacetime' 'Math' 'Medicine' 'Tech' 'History' 'Games' >> "$othersBookmarksFilePath"
 python3 "$currentDir/exportToMarkdown.py" "$outputFolder/bookmarks.json" --allowed '' 'menu' 'Scuola' 'Lezioni' 'Google suite' 'Inglese' 'Educazione civica' 'Fake news' 'Social network' 'GDPR e privacy' 'Informatica 1anno' 'Hardware' 'Windows' 'Office' 'Word' 'Powerpoint' 'Libreoffice' 'Professioni Informatiche' 'Informatica 3 anno' 'Sistemi e reti 3 anno' 'Sistemi e reti 4anno' 'TPSIT 4 anno' 'TPSIT 5 anno' 'Informatica 5 anno' 'Eventi' 'Domotica' >> "$educationalBookmarksFilePath"
